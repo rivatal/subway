@@ -1,7 +1,6 @@
 # CURRENT
 # Riva Tropp
 # 7/27/2015
-
 import pylev
 import re
 import sys
@@ -21,7 +20,8 @@ def samewords(name1, name2): #Checks if two phrases consist of the same words.
     else:
         return 0
 
-def distanceoffset(name1, name2): #Checks if the numbers in the strings are the same.
+#Checks if the numbers in the strings are the same.
+def distanceoffset(name1, name2): 
     a = re.compile(r'[^0-9]*([0-9]+)[^0-9]*')
 
     if (not a.match(name1) and a.match(name2)) or (not a.match(name2) and a.match(name1)):
@@ -49,6 +49,7 @@ def distanceoffset(name1, name2): #Checks if the numbers in the strings are the 
         else:
             return -5 #Same # of numbers, same numbers.
 
+
 #Returns a given phrase without any of the spaces
 def wordnospaces(name1):
     #Change to simple regex? Eh, don't mess with the merge.
@@ -58,11 +59,13 @@ def wordnospaces(name1):
         name1_ns = name1_ns + x
     return name1_ns
 
+
 #Checks if one string is inside the other.
 def isinside(name1, name2):
     if name1 in name2 or name2 in name1:
         return -2
     return 0
+
 
 #Invoked when entering the files in, changes forms of 'avenue' into 'av'.
 def one_ave(string1, pattern, string2):
@@ -85,8 +88,11 @@ def penalize(string1, string2):
 ################################################################################
 
 #Files are already lowercase. (Command line).
-f1 = open("ts2.txt")
-f2 = open("stops2.txt") 
+f1 = open("turnstile_names.txt")
+f2 = open("stops.txt") 
+
+
+
 
 turns = f1.readlines()
 gtfs = f2.readlines()
