@@ -5,13 +5,13 @@ Both .sh files let you get gtfs data and turnstile data.
 #join_gtfs.R
 Joins together the various gtfs datasets and gives stations unique ids.
 
+##2:
 #Get turnstile names for matching:
 cat turnstile_data/turnstile*.txt | cut -d, -f4 | sort | uniq > turnstile_names.txt
 cat station_ids_trips.csv | cut -d, -f5 | sort | uniq > gtfs_names.txt
 
-(cat station_ids_trips.csv | cut -d, -f10 | sort | uniq | wc)
+(After cat station_ids_trips.csv | cut -d, -f10 | sort | uniq | wc)
 There are 440 unique station ids in the gtfs data.
-
 There are 385 individual station names in the turnstile data && 377 in the gtfs
 Why such a disparity?
 -Different stations with the same name:
@@ -20,4 +20,15 @@ Why such a disparity?
 
 Test:
 station_names_ids_disparity_test.R
+
+##3:
+#Match up the names from the above files.
+match_names.py
+
+##4:
+#Small, more manual edits:
+smalleredits.awk
+
+
+
 
