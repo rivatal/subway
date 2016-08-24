@@ -1,9 +1,9 @@
 subway_research:
 
-#Both .sh files let you get gtfs data and turnstile data.
+Both .sh files let you get gtfs data and turnstile data.
 ##1:
-join_gtfs.R
-#Joins together the various gtfs datasets and gives stations unique ids.
+#join_gtfs.R
+Joins together the various gtfs datasets and gives stations unique ids.
 
 #Get turnstile names for matching:
 cat turnstile_data/turnstile*.txt | cut -d, -f4 | sort | uniq > turnstile_names.txt
