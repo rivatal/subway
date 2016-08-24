@@ -5,8 +5,8 @@ Both .sh files let you get gtfs data and turnstile data.
 Joins together the various gtfs datasets and gives stations unique ids.
 
 ##2: Get turnstile names for matching:
-cat turnstile_data/turnstile*.txt | cut -d, -f4 | sort | uniq > turnstile_names.txt
-cat station_ids_trips.csv | cut -d, -f5 | sort | uniq > gtfs_names.txt
+####cat turnstile_data/turnstile*.txt | cut -d, -f4 | sort | uniq > turnstile_names.txt
+####cat station_ids_trips.csv | cut -d, -f5 | sort | uniq > gtfs_names.txt
 
 (After cat station_ids_trips.csv | cut -d, -f10 | sort | uniq | wc)
 There are 440 unique station ids in the gtfs data.
