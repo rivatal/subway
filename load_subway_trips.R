@@ -64,6 +64,8 @@ write.csv(hourly_entries_exits_rates, file = "subway_entries_exits.csv")
 entries_exits_period <- group_by(hourly_entries_exits_rates, station_id, entry_exits_period) %>%
   summarise(hourly_entries = mean(hourly_entries),hourly_exits = mean(hourly_exits), station = station[1], linename=linename[1]) 
 
+entries_exits_period <- entries_exits_period[complete.cases(entries_exits_period),]
+#entries_exits_period$hourly_entries_exits
 write.csv(entries_exits_period, file = "entries_exits_average.csv")
 
 
@@ -74,7 +76,6 @@ write.csv(entries_exits_period, file = "entries_exits_average.csv")
 #ggplot(data=subwaydates, aes(x=date, y=entries)) + geom_histogram(stat="identity")  
 #+ scale_y_continuous(labels = comma) + scale_x_discrete()
 
-head(hourly_entries_exits_rates)                             
 #####################################################3
 #HourlyEntriesPerDay
 #Commented out because Saturday what.

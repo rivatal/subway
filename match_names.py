@@ -106,7 +106,7 @@ orig_gtfs = []
 r_best = {}
 
 #Don't give me any PATH trains.
-path = set(["NEWARK BM BW", "NEWARK C", "NEWARK HM HE", "NEWARK HW BMEBE", "HARRISON", "JOURNAL SQUARE", "GROVE STREET", "EXCHANGE PLACE", "PAVONIA NEWPORT", "CHRISTOPHER ST", "CITY   BUS", "LACKAWANNA", "STATION"]) #Hard Coded Path trains.
+path = set(["NEWARK BM BW", "NEWARK C", "NEWARK HM HE", "NEWARK HW BMEBE", "HARRISON", "JOURNAL SQUARE", "GROVE STREET", "EXCHANGE PLACE", "PAVONIA NEWPORT", "CHRISTOPHER ST", "CITY   BUS", "LACKAWANNA", "STATION", "THIRTY ST"]) #Hard Coded Path trains.
 
 #Don't give me any Staten Island Railroad stations.
 SIRS = set(["Nassau", "Annadale", "Tottenville", "Stapleton", "Clifton", "Grasmere", "Old Town", "Dongan Hills", "Jefferson Av", "Grant City", "New Dorp", "Oakwood Heights", "Bay Terrace", "Great Kills", "Eltingville", "Huguenot", "Prince's Bay", "Pleasant Plains", "Richmond Valley", "Nassau", "Atlantic"])

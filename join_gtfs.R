@@ -153,6 +153,7 @@ transfers <- arrange(transfers, as.factor(all_stat))
 #Now there's a column of all stop ids that are really the same acc' to transfers.txt
 trips <- left_join(trips, transfers, by = c("stop_id" = "from_stop_id"))
 
+
 #Now go through and if a stop is part of the same stop_set (all_stat), give it the same station_id.
 trips <- arrange(trips, all_stat)
 n <- 2:length(trips$all_stat)
@@ -166,7 +167,7 @@ trips <- trips[1:9] #Getting rid of extra stop_id stuff from transfers.
 #At this point, one station id should = one stop.
 #############################################################################################
 setwd("..")
-write.csv(trips, "station_ids_trips.csv")
+write.csv(trips, "station_ids_trips.csv", row.names = FALSE)
 #Fields: "route_id", "stop_sequence","stop_id","stop_name","stop_lat","stop_lon","direction_id","mean_duration","station_id" 
 #############################################################################################
 
