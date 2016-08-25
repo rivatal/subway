@@ -41,3 +41,6 @@ flycheck_*.el
 
 # projectiles files
 .projectile
+
+# CSVs
+*.csv

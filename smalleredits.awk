@@ -1,5 +1,8 @@
 BEGIN{
-
+    a["howard bch jfk"] = "Howard Beach - JFK Airport"
+    a["twenty third st"] = "23 St"
+    a["thirty third st"] = "33 St"
+    a["e tremont av"] = "West Farms Sq - E Tremont Av"
     a["jfk jamaica ct1"] = "Jamaica Center - Parsons/Archer"
     a["e 177 st parkch"] ="Parkchester"
     a["81 st museum"] ="81 St - Museum of Natural History"
@@ -18,7 +21,7 @@ BEGIN{
     a["hoyt st astoria"] ="Astoria Blvd"
     a["stillwell av"] ="Coney Island - Stillwell Av"
     a["5 av bryant pk"] ="42 St - Bryant Pk"
-    a["broadway 31 st"] ="None"
+    a["broadway 31 st"] = "Broadway"
     a["orchard beach"] ="Pelham Bay Park"
     a["forest parkway"] ="85 St - Forest Pkwy"
     a["242 st"] ="Van Cortlandt Park - 242 St"

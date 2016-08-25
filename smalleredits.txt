@@ -87,7 +87,7 @@ myrtle willough, 4, Myrtle - Willoughby Avs, MYRTLE-WILLOUGH
 inwood 207 st, -9, Inwood - 207 St, INWOOD-207 ST
 flushing av, -4, Flushing Av, FLUSHING AVE
 8 st b'way nyu, 1, 8 St - NYU, 8 ST-B'WAY NYU
-howard bch jfk, 10, Broad Channel, HOWARD BCH-JFK
+howard bch jfk, 0, Howard Beach - JFK Airport,  HOWARD BCH-JFK
 st lawrence av, -4, St Lawrence Av, ST LAWRENCE AVE
 barclays center, 0, Atlantic Av - Barclays Ctr,  BARCLAYS CENTER
 21 st, -9, 21 St, 21 ST
@@ -144,7 +144,6 @@ beebe 39 av, -1, 39 Av, BEEBE-39 AVE
 149 st gr conc, 3, 149 St - Grand Concourse, 149 ST-GR CONC
 157 st, -9, 157 St, 157 ST
 215 st, -9, 215 St, 215 ST
-thirty st, 4, Court St, THIRTY ST
 jamaica 179 st, -9, Jamaica - 179 St, JAMAICA-179 ST
 40 st lowery st, 6, 40 St, 40 ST-LOWERY ST
 elderts lane, 0, 75 St,  ELDERTS LANE
@@ -168,7 +167,7 @@ spring st, -4, Spring St, SPRING ST
 marcy av, -4, Marcy Av, MARCY AVE
 gates av, -4, Gates Av, GATES AVE
 bergen st, -4, Bergen St, BERGEN ST
-broadway 31 st, 0, None,  BROADWAY-31 ST
+broadway 31 st, 0, Broadway,  BROADWAY-31 ST
 orchard beach, 0, Pelham Bay Park,  ORCHARD BEACH
 brook av, -4, Brook Av, BROOK AVE
 155 st, -9, 155 St, 155 ST
@@ -241,7 +240,7 @@ fulton st, -4, Fulton St, FULTON ST
 nereid av, -4, Nereid Av, NEREID AVE
 beach 98 st, -9, Beach 98 St, BEACH 98 ST
 45 st, -9, 45 St, 45 ST
-thirty third st, 8, Whitehall St, THIRTY THIRD ST
+thirty third st, 0, 33 St,  THIRTY THIRD ST
 fordham road, 2, Fordham Rd, FORDHAM ROAD
 neck road, 2, Neck Rd, NECK ROAD
 roosevelt av, 0, 74 St - Broadway,  ROOSEVELT AVE
@@ -268,7 +267,7 @@ cypress av, -4, Cypress Av, CYPRESS AVE
 queensboro plz, 2, Queensboro Plaza, QUEENSBORO PLZ
 116 st, -9, 116 St, 116 ST
 42 st times sq, 0, Times Sq - 42 St,  42 ST-TIMES SQ
-e tremont av, 0, Tremont Av, E TREMONT AVE
+e tremont av, 0, West Farms Sq - E Tremont Av,  E TREMONT AVE
 castle hill av, -4, Castle Hill Av, CASTLE HILL AVE
 7 av 53 st, 0, 7 Av,  7 AVE-53 ST
 path wtc 2, 7, 2 Av, PATH WTC 2
@@ -291,7 +290,7 @@ prince st b'way, 4, Prince St, PRINCE ST-B'WAY
 137 st city col, -3, 137 St - City College, 137 ST-CITY COL
 woodhaven blvd, -4, Woodhaven Blvd, WOODHAVEN BLVD
 25 st, -9, 25 St, 25 ST
-twenty third st, 8, Winthrop St, TWENTY THIRD ST
+twenty third st, 0, 23 St,  TWENTY THIRD ST
 burnside av, -4, Burnside Av, BURNSIDE AVE
 23 st 5 av, 5, 23 St, 23 ST-5 AVE
 longwood av, -4, Longwood Av, LONGWOOD AVE

@@ -144,7 +144,6 @@ beebe 39 av, -1, 39 Av, BEEBE-39 AVE
 149 st gr conc, 3, 149 St - Grand Concourse, 149 ST-GR CONC
 157 st, -9, 157 St, 157 ST
 215 st, -9, 215 St, 215 ST
-thirty st, 4, Court St, THIRTY ST
 jamaica 179 st, -9, Jamaica - 179 St, JAMAICA-179 ST
 40 st lowery st, 6, 40 St, 40 ST-LOWERY ST
 elderts lane, 5, Elder Av, ELDERTS LANE
