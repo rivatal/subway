@@ -15,7 +15,7 @@ txts <- Sys.glob(sprintf('%s/turnstile_*.txt', data_dir))
 ts_data <- data.frame()
 
 #Just grabbing every seven turnstile dataframes for a good sample of the names.
-txts <- txts[seq(2, length(txts), 7)]
+txts <- txts[seq(2, length(txts))]
 for (txt in txts) {
   tmp <- read.table(txt, header=TRUE, sep=",",fill=TRUE,quote = "",row.names = NULL, stringsAsFactors = FALSE)
   ts_data <- rbind(ts_data, tmp)
@@ -49,6 +49,6 @@ all_ts$intersect <- mapply(overlap, all_ts$LINENAME, all_ts$gtfs_route)
 all_ts <- filter(all_ts, intersect > 0)
 
 #non_int <- filter(all_ts, intersect == 0)
-write.csv(all_ts, "sample_ts.csv")
+write.csv(all_ts, "all_ts.csv")
 
 

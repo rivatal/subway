@@ -165,9 +165,18 @@ for (i in n){
 trips <- arrange(trips, route_id, stop_sequence)
 trips <- trips[1:9] #Getting rid of extra stop_id stuff from transfers.
 #At this point, one station id should = one stop.
+
+#CHANGED THIS PRETTY LATE, SO THERE MAY BE ISSUES
+stations <- trips %>% group_by(station_id) %>% summarise(vector=paste(route_id, collapse=""))
+trips <- left_join(trips, stations)
+names(trips)[10] <- "routes"
 #############################################################################################
-setwd("..")
+setwd("~/subway/")
 write.csv(trips, "station_ids_trips.csv", row.names = FALSE)
 #Fields: "route_id", "stop_sequence","stop_id","stop_name","stop_lat","stop_lon","direction_id","mean_duration","station_id" 
 #############################################################################################
 
+#Now create a datset that's just stations, their ids, routes, and their lats and long, used in map analysis.
+stations <- trips[c("routes", "station_id", "stop_lat", "stop_lon")] 
+stations <- stations %>% group_by(routes, station_id) %>% summarize(stop_lat = stop_lat[1], stop_lon = stop_lon[1])
+write.csv(stations, "station_ids_coords.csv", row.names = FALSE)
