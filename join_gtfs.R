@@ -1,5 +1,6 @@
 ###############################################################################################
 #Riva Tropp
+#Checked 9/5/16
 #Produces a database of all gtfs data, joined, with custom station ids.
 ################################################################################################
 
@@ -19,6 +20,9 @@ trips <- read.table("trips.txt",header=TRUE,
                     sep=",",fill=TRUE,quote = "",row.names = NULL,
                     stringsAsFactors = FALSE) 
 
+
+#This line reduces trips to just the B records-- the largest ones. Remove if it messes up your work.
+trips <- filter(trips, substr(trips$service_id, 1, 1) == "B")
 #Processing stop_times
 #Getting rid of columns "stop_headsign", "pickup_type", "dropoff_type", "shape_dist_traveled"
 stop_times <- stop_times[1:5]
@@ -54,9 +58,6 @@ trips <- group_by(trips, route_id, direction_id) %>% mutate(travel_time = depart
 trips[trips$stop_sequence == 1,]$travel_time = 0
 
 ###################################################################################################
-#write.csv(trips, "trips_stops_stop_times.csv")
-#This df has trip_id, arrival_time, departure_time, stop_id, stop_sequence, stop_name, stop_lat, stop_lon, route_id, service_id, trip_headsign, and direction
-###################################################################################################
 trips <- arrange(trips, route_id, stop_sequence)
 
 #Getting rid of trip_id, service_id, arrival_time, and departure_time in order to generalize.
@@ -66,10 +67,7 @@ avg_trips <- trips[c(4,5,6,7,8,9,11,12,13)]
 avg <- group_by(trips, route_id, stop_sequence, stop_name, stop_id, stop_lon, stop_lat, trip_headsign, direction_id) %>% summarize(mean(travel_time))
 avg <- arrange(avg, direction_id, route_id)
 avg <- avg[complete.cases(avg),]
-
-###################################################################################################
-#write.csv(avg, "trips_average_times.csv")
-#This df has mean_travel_time, stop_id, stop_sequence, stop_name, stop_lat, stop_lon, route_id, trip_headsign, and direction
+  
 ###################################################################################################
 
 #Now, on to creating unique ids for each station. The idea is to use the route_id (route_id corresponds to a single trip by a train) 

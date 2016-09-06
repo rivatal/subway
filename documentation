@@ -1,0 +1,16 @@
+This is for more detailed documentation than is on the readme (more to organize myself than anything else).
+---------
+1. Merge all the gtfs data. GTFS data is a 'feed' of the subway stations, thoughit actually only records 6 days- Sunday, Saturday, and a weekday of the week of June 12, 2016 (A and B), and Saturday, Sunday, and a weekday of May 10, 2015.
+I reduced the records to just B to get a complete route. The contents of orig_station_ids_trips.csv are pre the reduction. The reduction is on line 25.
+Files produced:
+#station_ids_trips.csv:
+"route_id","stop_sequence","stop_id","stop_name","stop_lat","stop_lon","direction_id","mean_duration","station_id","routes"
+The stops are organized along the route_id with their stop sequence and station ids, but all routes corresponding to the station ids can be found in routes.
+#station_ids_coords.csv
+This has the ids of the stations and a latitude and longitude for them (there were a couple for each station in the gtfs data based on doors, I believe; I just selected the first (I think)). It also has all routes associated with a station.
+####
+#Ex:
+#sL014 (which corresponds to Morgan Av) has coords 40.706152,-73.933147, and serves the L train only
+#sA035 (W 4th st station) has coords 40.732338,-74.000495 and serves the ABCDEF #and M trains
+####
+ 
