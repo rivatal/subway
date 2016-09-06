@@ -22,7 +22,7 @@ trips <- read.table("trips.txt",header=TRUE,
 
 
 #This line reduces trips to just the B records-- the largest ones. Remove if it messes up your work.
-trips <- filter(trips, substr(trips$service_id, 1, 1) == "B")
+#trips <- filter(trips, substr(trips$service_id, 1, 1) == "B")
 #Processing stop_times
 #Getting rid of columns "stop_headsign", "pickup_type", "dropoff_type", "shape_dist_traveled"
 stop_times <- stop_times[1:5]

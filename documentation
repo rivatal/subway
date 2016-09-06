@@ -1,7 +1,7 @@
 This is for more detailed documentation than is on the readme (more to organize myself than anything else).
 ---------
 1. Merge all the gtfs data. GTFS data is a 'feed' of the subway stations, thoughit actually only records 6 days- Sunday, Saturday, and a weekday of the week of June 12, 2016 (A and B), and Saturday, Sunday, and a weekday of May 10, 2015.
-I reduced the records to just B to get a complete route. The contents of orig_station_ids_trips.csv are pre the reduction. The reduction is on line 25.
+
 Files produced:
 #station_ids_trips.csv:
 "route_id","stop_sequence","stop_id","stop_name","stop_lat","stop_lon","direction_id","mean_duration","station_id","routes"
@@ -14,3 +14,20 @@ This has the ids of the stations and a latitude and longitude for them (there we
 #sA035 (W 4th st station) has coords 40.732338,-74.000495 and serves the ABCDEF #and M trains
 ####
  
+2. Grab just the turnstile names from the turnstile data to feed to match_table.py
+(Took like 30 seconds)
+GTFS names are also grabbed from station_ids_trips.csv
+
+Test:
+cat station_ids_trips.csv | cut -d, -f9 | sort | uniq | wc
+There were 440 unique station ids in the gtfs data. Using just B there are 269.
+There are 385 individual station names in the turnstile data && 377 in the gtfs
+Why such a disparity?
+-Different stations with the same name:
+3- "Van Siclen Av"'s
+2 "Wall St"'s
+
+Test:
+station_names_ids_disparity_test.R
+
+3. 
