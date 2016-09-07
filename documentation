@@ -30,4 +30,6 @@ Why such a disparity?
 Test:
 station_names_ids_disparity_test.R
 
-3. 
+3. Match names with match_table.py, override a couple of entries in smalleredits.awk (smalleredits.txt)
+
+4.
