@@ -31,14 +31,7 @@ merge.R
 ##6: Get average hourly entries, exits by station:
 load_subway_trips.R
 
-##7: Balance the entries and exits to make a closed system:
-balance_entries_exits.R
 
-##7.5: Make a train_travel.csv dataset with from and to stations?
-make_routes.R
-
-##8: Compute minimum cost flow?
-Flow.py
 
 
 
