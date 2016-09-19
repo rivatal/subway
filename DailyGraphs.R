@@ -5,9 +5,12 @@ library(dplyr)
 setwd(".")
 
 data <- read.csv("daily_entries_exits.csv")
-
 colnames(data)[5] <- "entries"
 colnames(data)[6] <- "exits"
+
+
+Eleventh <- data %>% filter(date=="10/11/2014")
+#sum(Eleventh$entries)
 
 popular_times <- data[complete.cases(data),] %>% group_by(entry_exits_period) %>% summarize(entries =mean(as.numeric(entries)), exits= mean(as.numeric(exits)))
 names(popular_times) <- c("time_bucket", "entries", "exits")

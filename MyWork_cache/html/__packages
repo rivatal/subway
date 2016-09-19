@@ -1,0 +1,10 @@
+base
+yaml
+knitr
+dplyr
+timeDate
+reshape
+ggplot2
+data.table
+tidyr
+scales

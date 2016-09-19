@@ -1,0 +1,42 @@
+---
+title: "Senior Thesis Work"
+author: "Riva Tropp"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+```{r simulate_data, message=FALSE}
+library('yaml')  
+library('knitr')
+
+setwd("~/subway")
+```
+1. Join together all the gtfs datasets (trips, transfers, etc)
+```{r, message=FALSE}
+source("join_gtfs.R")
+kable(head(sample(trips, size = 10)))
+kable(filter(trips, station_id == 's104'))
+```
+2. Extract names from the raw data for easy matching.
+```{sh get_names}
+cat turnstile_data/turnstile*.txt | cut -d, -f4 | sort | uniq > turnstile_names.txt
+cat station_ids_trips.csv | cut -d, -f4 | sort | uniq > gtfs_names.txt
+```
+3. Run match_names.py to put everything in a mergetable.
+```{python match_names}
+import match_names
+```
+4. Small manual edits to get everything tightened up.
+```{sh small_edits}
+awk -f smalleredits.awk
+```
+5. Merge everything.
+```{r, message=FALSE, eval=FALSE}
+source("merge.R")
+```
+```{r, message=FALSE}
+source("load_subway_trips.R")
+```
+
