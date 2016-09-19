@@ -1,6 +1,6 @@
 ---
 title: "Senior Thesis Work"
-author: "Riva Tropp"
+author: "Riva"
 output: html_document
 ---
 ```{r setup, include=FALSE}
