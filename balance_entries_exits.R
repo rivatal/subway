@@ -1,9 +1,7 @@
 # Riva Tropp
 # 8/24/2016
 # Simple script to scale up exits to match entries for use in min-cost-flow algorithm.
-
 library(dplyr)
-setwd(".")
 
 all_sub <- read.table("entries_exits_average.csv",header=TRUE, sep=",", # current turnstyle dataframe
                       quote = "\"", row.names = NULL, strip.white = TRUE, 

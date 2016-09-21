@@ -3,20 +3,17 @@
 #Checked 9/5/16
 #Produces a database of all gtfs data, joined, with custom station ids.
 ################################################################################################
-
 library(dplyr)
-setwd("~/subway/gtfs_data/")
-
-stop_times <- read.table("stop_times.txt",header=TRUE, 
+#stop_times <- "gtfs_data/"
+stop_times <- read.table("gtfs_data/stop_times.txt",header=TRUE, 
                          sep=",",fill=TRUE,quote = "",row.names = NULL,
                          stringsAsFactors = FALSE) 
 
-stops <- read.table("stops.txt", header=TRUE, 
+stops <- read.table("gtfs_data/stops.txt", header=TRUE, 
                     sep=",",fill=TRUE,quote = "",row.names = NULL,
                     stringsAsFactors = FALSE)
 
-setwd("~/subway/gtfs_data/")
-trips <- read.table("trips.txt",header=TRUE, 
+trips <- read.table("gtfs_data/trips.txt",header=TRUE, 
                     sep=",",fill=TRUE,quote = "",row.names = NULL,
                     stringsAsFactors = FALSE) 
 
@@ -117,8 +114,7 @@ for (i in n){
 }
 
 #Loading in transfer stops.
-setwd("~/subway/gtfs_data")
-transfers <- read.table("transfers.txt",header=TRUE, 
+transfers <- read.table("gtfs_data/transfers.txt",header=TRUE, 
                         sep=",",fill=TRUE,quote = "",row.names = NULL,
                         stringsAsFactors = FALSE) 
 
@@ -169,7 +165,6 @@ stations <- trips %>% group_by(station_id) %>% summarise(vector=paste(route_id, 
 trips <- left_join(trips, stations)
 names(trips)[10] <- "routes"
 #############################################################################################
-setwd("~/subway/")
 write.csv(trips, "station_ids_trips.csv", row.names = FALSE)
 #Fields: "route_id", "stop_sequence","stop_id","stop_name","stop_lat","stop_lon","direction_id","mean_duration","station_id" 
 #############################################################################################
@@ -178,3 +173,18 @@ write.csv(trips, "station_ids_trips.csv", row.names = FALSE)
 stations <- trips[c("routes", "station_id", "stop_lat", "stop_lon")] 
 stations <- stations %>% group_by(routes, station_id) %>% summarize(stop_lat = stop_lat[1], stop_lon = stop_lon[1])
 write.csv(stations, "station_ids_coords.csv", row.names = FALSE)
+
+#Now get all the routes. 
+
+trips <- trips %>% arrange(route_id, as.numeric(stop_sequence))
+
+names(trips)[9] <- "to_id"
+names(trips)[4] <- "to_station"
+trips <- trips %>% mutate(from_id = lag(to_id), from_station = lag(to_station))
+
+trips$from_id[trips$stop_sequence == "01"] <- NA
+trips <- trips[complete.cases(trips),]
+
+trains_info <- data.frame(trips[,c(1,12,11,4,9,8)])
+names(trains_info) <- c("Train","FromStation",'FromStationID','ToStation','ToStationID',"TravelTime")
+write.csv(trains_info, "train_travel.csv")

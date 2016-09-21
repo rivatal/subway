@@ -7,15 +7,14 @@ output: html_document
 knitr::opts_chunk$set(cache=TRUE)
 ```
 
-```{r simulate_data, message=FALSE}
+```{r data, message=FALSE}
 library('yaml')  
 library('knitr')
 
-setwd("~/subway")
 ```
 1. Join together all the gtfs datasets (trips, transfers, etc)
 ```{r, message=FALSE}
-source("join_gtfs.R")
+source("join_gtfs.R", chdir = TRUE)
 kable(head(sample(trips, size = 10)))
 kable(filter(trips, station_id == 's104'))
 ```
@@ -33,7 +32,7 @@ import match_names
 awk -f smalleredits.awk
 ```
 5. Merge everything.
-```{r, message=FALSE, eval=FALSE}
+```{r, message=FALSE}
 source("merge.R")
 ```
 ```{r, message=FALSE}

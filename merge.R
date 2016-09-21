@@ -2,7 +2,6 @@
 #After running matchnames.py
 #Fixed a problem where size quadrupled due to gtfs linenames.
 library(dplyr)
-setwd(".")
 mergetable <- read.table("smalleredits.txt",header=FALSE, 
                          sep=",",fill=TRUE, strip.white = TRUE, quote = "", row.names = NULL,
                          stringsAsFactors = FALSE) 

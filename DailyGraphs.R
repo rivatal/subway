@@ -9,7 +9,7 @@ colnames(data)[5] <- "entries"
 colnames(data)[6] <- "exits"
 
 
-Eleventh <- data %>% filter(date=="10/11/2014")
+#Eleventh <- data %>% filter(date=="10/11/2014")
 #sum(Eleventh$entries)
 
 popular_times <- data[complete.cases(data),] %>% group_by(entry_exits_period) %>% summarize(entries =mean(as.numeric(entries)), exits= mean(as.numeric(exits)))
@@ -57,5 +57,5 @@ for(i in 1:12){
   x <- days %>% filter(substring(days$date, 1, 2) == (paste0("0", i)))
   g <- ggplot(data = x, aes(x = date, y=entries, group=1)) + geom_line() +
     scale_y_continuous(label = comma) + scale_fill_brewer()
-  ggsave(filename = paste0(paste0("plot", i), ".pdf"), plot = g)
+  ggsave(filename = paste0(paste0("plot", i), ".png"), plot = g)
 }
