@@ -44,3 +44,6 @@ flycheck_*.el
 
 # CSVs
 *.csv
+
+# Caches
+*cache*
