@@ -99,7 +99,7 @@ for(j in 2015:2016){
     print(j)
     View(x)
     if(!is.null(x)){
-      g <- ggplot(data = x, aes(x = date, y=entries, group=1)) + geom_line(color = "steelblue") +
+      g <- ggplot(data = x, aes(x = day, y=entries, group=1)) + geom_line(color = "steelblue") +
       scale_y_continuous(label = comma) + ggtitle(i)
       ggsave(filename = paste0(paste0(paste0("plot", i), j), ".png"), plot = g)
     }
