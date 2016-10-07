@@ -10,19 +10,22 @@ names(mergetable) <- c("stop_name", "STATION")
 
 
 #Make sure to change duplicates and every six thing.
-data_dir <- "turnstile_data"
-txts <- Sys.glob(sprintf('%s/turnstile_*.txt', data_dir))
+#data_dir <- "turnstile_data"
+#txts <- Sys.glob(sprintf('%s/turnstile_*.txt', data_dir))
+txts <- scan(file="turnstile_files.txt", what="", sep="\n") 
 ts_data <- data.frame()
 
 #Just grabbing every eight turnstile dataframes for a good sample of the names.
-txts <- txts[seq(1, length(txts))]
+#txts <- txts[seq(1, length(txts))]
 #txts <- txts[1]
+setwd("turnstile_data/")
 for (txt in txts) {
+  print(txt)
   tmp <- read.table(txt, header=TRUE, sep=",",fill=TRUE,quote = "",row.names = NULL, stringsAsFactors = FALSE)
   ts_data <- rbind(ts_data, tmp)
 }
 ts_data <- arrange(ts_data, LINENAME)
-
+setwd("..")
 #join mergetable and ts_data together.
 all_ts <- full_join(mergetable, ts_data)
 
@@ -53,9 +56,6 @@ all_ts <- select(all_ts, -gtfs_route)
 all_ts <- all_ts[!duplicated(all_ts),]
 
 
-##########################################################################################
-#Tests
-##########################################################################################
 all_ts <- all_ts %>% arrange(station_id)
 
 #non_int <- filter(all_ts, intersect == 0)

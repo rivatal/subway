@@ -18,12 +18,11 @@ names(subwaydata) <- tolower(names(subwaydata))
 subwaydata$date.time <- with(subwaydata, paste(date, time, sep=' '))
 subwaydata$date.time <- with(subwaydata, strptime(date.time, "%m/%d/%Y %H:%M:%S"))
 subwaydata$date.time <- with(subwaydata, as.POSIXct((date.time)))
-subwaydata <- mutate(subwaydata, day_of_week = dayOfWeek(as.timeDate(date.time)))
+#subwaydata <- mutate(subwaydata, day_of_week = dayOfWeek(as.timeDate(date.time)))
 
 subwaydata <- as.data.frame(subwaydata) %>%select(-x, -intersect)
 
-subwaydata <- subwaydata %>% group_by(c.a, unit, scp) %>% arrange(station_id, c.a, unit, scp)
-
+subwaydata <- subwaydata %>% group_by(station_id, c.a, unit, scp) %>% arrange(station_id, c.a, unit, scp)
 subwaydata <- arrange(subwaydata, date.time) %>%
   mutate(lasttime = lag(date.time), time.delta = as.numeric(date.time-lag(date.time),units="hours"))
 
@@ -47,7 +46,8 @@ subwaydata <- filter(subwaydata, time.delta <= 12)
 
 #####################################################################################
 #Entries, exits, stations for every day
-subwaydata <- subwaydata %>% group_by(station_id, date, day_of_week, entry_exits_period) %>% arrange(station_id, date, entry_exits_period) 
+
+subwaydata <- subwaydata %>% group_by(station_id, date, entry_exits_period) %>% arrange(station_id, date, entry_exits_period) 
 daily_entries_exits <- summarize(subwaydata, st.entries = sum(entries.delta, na.rm = TRUE), st.exits = sum(exits.delta, na.rm = TRUE))
 write.csv(daily_entries_exits, file = "daily_entries_exits.csv", row.names = FALSE)
 #####################################################################################

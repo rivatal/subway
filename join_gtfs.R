@@ -187,4 +187,4 @@ trips <- trips[complete.cases(trips),]
 
 trains_info <- data.frame(trips[,c(1,12,11,4,9,8)])
 names(trains_info) <- c("Train","FromStation",'FromStationID','ToStation','ToStationID',"TravelTime")
-write.csv(trains_info, "train_travel.csv")
+write.csv(trains_info, "train_travel.csv", quote = FALSE)

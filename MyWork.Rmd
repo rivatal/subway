@@ -16,7 +16,7 @@ library('knitr')
 ```{r, message=FALSE}
 source("join_gtfs.R", chdir = TRUE)
 kable(head(sample(trips, size = 10)))
-kable(filter(trips, station_id == 's104'))
+kable(filter(trips, from_id == 's104'))
 ```
 2. Extract names from the raw data for easy matching.
 ```{sh get_names}
@@ -38,4 +38,6 @@ source("merge.R")
 ```{r, message=FALSE}
 source("load_subway_trips.R")
 ```
-
+```{r daily, message=FALSE}
+source("DailyGraphs.R")
+```

@@ -19,7 +19,6 @@ subway_entries_exits_totals$date <- as.Date(as.character(subway_entries_exits_to
 
 ggplot(data=subway_entries_exits_totals,aes(x=date, y=total, colour=exit_or_entry, group=exit_or_entry)) + 
   geom_line()+
-  geom_point()+
   xlab("")  +
   scale_y_continuous(" ", limits=c(0, 7e6 ), breaks =c(0,2e6,4e6,6e6), labels = c("0", "2M" , "4M" , "6M"))+
   ggtitle("Entries vs Exits for Entire System\n") + 
