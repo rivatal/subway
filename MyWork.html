@@ -279,23 +279,12 @@ kable(head(sample(trips, size = 10)))</code></pre>
 <td align="left">s104</td>
 <td align="left">Chambers St</td>
 </tr>
-<tr class="even">
-<td align="left">2. Extract</td>
-<td align="left">names from the r</td>
-<td align="left">aw data fo</td>
-<td align="left">r easy matchin</td>
-<td align="right">g.</td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
 </tbody>
 </table>
-<pre class="sh"><code>cat turnstile_data/turnstile*.txt | cut -d, -f4 | sort | uniq &gt; turnstile_names.txt
+<ol start="2" style="list-style-type: decimal">
+<li>Extract names from the raw data for easy matching.</li>
+</ol>
+<pre class="sh"><code>python getfiles.py -n
 cat station_ids_trips.csv | cut -d, -f4 | sort | uniq &gt; gtfs_names.txt</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Run match_names.py to put everything in a mergetable.</li>
@@ -310,7 +299,94 @@ cat station_ids_trips.csv | cut -d, -f4 | sort | uniq &gt; gtfs_names.txt</code>
 </ol>
 <pre class="r"><code>source(&quot;merge.R&quot;)</code></pre>
 <pre class="r"><code>source(&quot;load_subway_trips.R&quot;)</code></pre>
-<pre class="r"><code>source(&quot;DailyGraphs.R&quot;)</code></pre>
+<pre class="r"><code>source(&quot;DailyGraphs.R&quot;)
+kable(july)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">date</th>
+<th align="right">awk_entries</th>
+<th align="right">r_entries</th>
+<th align="right">diff</th>
+<th align="right">absdif</th>
+<th align="right">r_station_entries</th>
+<th align="right">awkdiff</th>
+<th align="right">rvsrstation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2015-07-02</td>
+<td align="right">5149974</td>
+<td align="right">5082586</td>
+<td align="right">-67388</td>
+<td align="right">67388</td>
+<td align="right">4877252</td>
+<td align="right">272722</td>
+<td align="right">205334</td>
+</tr>
+<tr class="even">
+<td align="left">2015-07-01</td>
+<td align="right">5251439</td>
+<td align="right">5157956</td>
+<td align="right">-93483</td>
+<td align="right">93483</td>
+<td align="right">4946904</td>
+<td align="right">304535</td>
+<td align="right">211052</td>
+</tr>
+<tr class="odd">
+<td align="left">2015-06-29</td>
+<td align="right">5124005</td>
+<td align="right">4905012</td>
+<td align="right">-218993</td>
+<td align="right">218993</td>
+<td align="right">4706523</td>
+<td align="right">417482</td>
+<td align="right">198489</td>
+</tr>
+<tr class="even">
+<td align="left">2015-06-27</td>
+<td align="right">2874630</td>
+<td align="right">3170676</td>
+<td align="right">296046</td>
+<td align="right">296046</td>
+<td align="right">3055114</td>
+<td align="right">-180484</td>
+<td align="right">115562</td>
+</tr>
+<tr class="odd">
+<td align="left">2015-06-28</td>
+<td align="right">2536247</td>
+<td align="right">2644100</td>
+<td align="right">107853</td>
+<td align="right">107853</td>
+<td align="right">2548068</td>
+<td align="right">-11821</td>
+<td align="right">96032</td>
+</tr>
+<tr class="even">
+<td align="left">2015-07-03</td>
+<td align="right">3292688</td>
+<td align="right">3397295</td>
+<td align="right">104607</td>
+<td align="right">104607</td>
+<td align="right">3273788</td>
+<td align="right">18900</td>
+<td align="right">123507</td>
+</tr>
+<tr class="odd">
+<td align="left">2015-06-30</td>
+<td align="right">5284490</td>
+<td align="right">5158058</td>
+<td align="right">-126432</td>
+<td align="right">126432</td>
+<td align="right">4945620</td>
+<td align="right">338870</td>
+<td align="right">212438</td>
+</tr>
+</tbody>
+</table>
 
 
 

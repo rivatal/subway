@@ -1,0 +1,4 @@
+1This is what I did to verify my numbers:
+Sorted a turnstile file by date and ran test.awk
+Negative counts went to a file called bad.txt-- wc bad.txt = 937, .4% of the data.
+While it is possible the counts going backwards represented entries somehow, we decided to excise that since there's really no way of knowing that for sure.

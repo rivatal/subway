@@ -18,9 +18,10 @@ source("join_gtfs.R", chdir = TRUE)
 kable(head(sample(trips, size = 10)))
 kable(filter(trips, from_id == 's104'))
 ```
+
 2. Extract names from the raw data for easy matching.
 ```{sh get_names}
-cat turnstile_data/turnstile*.txt | cut -d, -f4 | sort | uniq > turnstile_names.txt
+python getfiles.py -n
 cat station_ids_trips.csv | cut -d, -f4 | sort | uniq > gtfs_names.txt
 ```
 3. Run match_names.py to put everything in a mergetable.
@@ -38,6 +39,8 @@ source("merge.R")
 ```{r, message=FALSE}
 source("load_subway_trips.R")
 ```
+
 ```{r daily, message=FALSE}
 source("DailyGraphs.R")
+kable(july)
 ```
