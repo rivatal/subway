@@ -27,11 +27,20 @@ BEGIN{
     else{
 	OFS = ","
 	while((getline < file) > 0){
-	    curr = $1 "," $2 "," $3 "," $4 "," $8 "," $7 "," $10
+	    curr = $1 "," $2 "," $3 "," $4
 	    diff = $10 - lastentries
 	    if($1 == ca && $2 == unit && scp == $3 && station == $4 && diff > 0 && diff < 100000){
 		key = $7 #The date
 		dict[key] += diff
+		lastentry[curr] = $10
+	    }
+	    else{
+		if(lastentry[curr]){
+		    print(lastentry[curr], " exists for ", curr)
+		    diff = $10 - lastentry[curr]
+		    if(diff > 0 && diff < 100000)
+			dict[$7] += diff
+		}
 	    }
 	    ca = $1
 	    unit = $2
@@ -41,7 +50,7 @@ BEGIN{
 	    lastall = $1 "," $2 "," $3 "," $4 "," $8 "," $7 "," $10
 	}	    
 	for(x in dict){
-	    print x, dict[x]
+	    print x, dict[x] >> "julynums.csv"
 	}
     }
 }
