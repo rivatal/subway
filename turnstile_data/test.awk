@@ -30,7 +30,7 @@ BEGIN{
 	OFS = ","
 	while((getline < file) > 0){
 	    #C.A. UNIT, SCP, STATION
-	    curr = $1 "," $2 "," $3 "," $4
+	    curr = $1 "," $2 "," $3 "," $4 "," $5
 	    diff = $10-lastentry[curr]
 	    if(diff > 0 && diff < 100000){
 		key = $7 #The date
@@ -39,7 +39,7 @@ BEGIN{
 	    lastentry[curr] = $10
 	}	    
 	for(x in dict){
-	    print x, dict[x] >> "julynums.csv"
+	    print x, dict[x] > "julynums.csv"
 	}
     }
 }
